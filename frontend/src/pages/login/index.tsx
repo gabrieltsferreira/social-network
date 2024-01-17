@@ -26,10 +26,13 @@ export default function Home() {
   };
 
   return (
-    <main>
-      <div>
-        <h1>Create User</h1>
+    <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+      <div className="space-y-4 w-full max-w-2xl">
+        <h1 className="text-2xl font-bold text-gray-800 text-center">
+          Login
+        </h1>
 
+        {/* Login Form */}
         <div>
           <form onSubmit={createUser} className="p-4 bg-blue-100 rounded shadow">
             <input
@@ -50,7 +53,7 @@ export default function Home() {
           </form>
         </div>
 
-      </div>
+      </div>     
     </main>
   )
 };
