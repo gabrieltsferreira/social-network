@@ -10,18 +10,19 @@ interface User {
 
 export default function Home() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
-  const [users, setUsers] = useState<User[]>([]);
-  const [newUser, setNewUser] = useState({ name: '', email: '' });
+  const [checkUser, setCheckUser] = useState({ name: '', email: '' });
 
 
-  const createUser = async (e: React.FormEvent<HTMLFormElement>) => {
+  const loginUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${apiUrl}/users`, newUser);
-      setUsers([response.data, ...users]);
-      setNewUser({ name: '', email: '' });
+      const response = await axios.post(`${apiUrl}/login`, checkUser);
+
+      if(response.status==200) {
+        window.location.href = '/users';
+      }
     } catch (error) {
-      console.error('Error creating user: ', error);
+      console.error('Error trying to login: ', error);
     }
   };
 
@@ -34,21 +35,21 @@ export default function Home() {
 
         {/* Login Form */}
         <div>
-          <form onSubmit={createUser} className="p-4 bg-blue-100 rounded shadow">
+          <form onSubmit={loginUser} className="p-4 bg-blue-100 rounded shadow">
             <input
               placeholder="Name"
-              value={newUser.name}
-              onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+              value={checkUser.name}
+              onChange={(e) => setCheckUser({ ...checkUser, name: e.target.value })}
               className="mb-2 w-full p-2 border boder-gray-300 rounded"
             />
             <input
               placeholder="Email"
-              value={newUser.email}
-              onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+              value={checkUser.email}
+              onChange={(e) => setCheckUser({ ...checkUser, email: e.target.value })}
               className="mb-2 w-full p-2 border boder-gray-300 rounded"
             />
             <button type="submit" className="w-full p2 text-white bg-blue-500 rounded">
-              Add User
+              Login
             </button>
           </form>
         </div>

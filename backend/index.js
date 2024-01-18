@@ -4,6 +4,7 @@ const app = express();
 //JSON parser
 app.use(express.json());
 
+
 //CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -16,8 +17,10 @@ app.use((req, res, next) => {
 //Routing
 const testRoute = require('./routes/Test');
 const userRoute = require('./routes/User');
+const loginRoute = require('./routes/Login')
 app.use('/test', testRoute);
 app.use('/users', userRoute);
+app.use('/login', loginRoute)
 
 
 const PORT = process.env.PORT || 4000;
