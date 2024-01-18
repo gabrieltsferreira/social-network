@@ -18,9 +18,16 @@ app.use((req, res, next) => {
 const testRoute = require('./routes/Test');
 const userRoute = require('./routes/User');
 const loginRoute = require('./routes/Login')
+
+const authRoute = require('./routes/OAuth')
+const authRequestRoute = require('./routes/OAuthRequest')
+
 app.use('/test', testRoute);
 app.use('/users', userRoute);
 app.use('/login', loginRoute)
+
+app.use('/oauth', authRoute);
+app.use('/oauthrequest', authRequestRoute);
 
 
 const PORT = process.env.PORT || 4000;

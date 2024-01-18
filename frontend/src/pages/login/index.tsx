@@ -26,12 +26,32 @@ export default function Home() {
     }
   };
 
+  function navigate(url: string) {
+    window.location.href = url;
+  }
+
+  async function auth() {
+    try {
+      const response = await fetch(`${apiUrl}/oauthrequest`, {method:'post'});
+      const data = await response.json();
+      navigate(data.url);
+    } catch (error) {
+      console.log(error)
+    }
+    
+  }
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
       <div className="space-y-4 w-full max-w-2xl">
         <h1 className="text-2xl font-bold text-gray-800 text-center">
           Login
         </h1>
+
+        {/* Google Auth */}
+        <button type="button" onClick={() => auth()}>
+          Login With Google
+        </button>
 
         {/* Login Form */}
         <div>
