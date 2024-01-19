@@ -6,6 +6,17 @@ The aim of this project is to develop a social network.
 
 You will need to install docker v.3.9 to easily test the application
 
+### Built With
+
+* [![Next][Next.js]][Next-url]
+* [![React][React.js]][React-url]
+* [![Node][Node.js]][Node-url]
+* [![Express][Express]][Express-url]
+* [![Prisma][Prisma]][Prisma-url]
+* [![Axios][Axios]][Axios-url]
+* [![Docker][Docker]][Docker-url]
+
+
 ### Installation
 
 ```
@@ -28,33 +39,33 @@ $ Database will run at http://localhost:5432
 
 ## API
 
-Implemented Routes
+### Implemented Routes
 
 Frontend Endpoints (pages):
   Login:
-    path: /login
-    methods: POST
+    - path: /login
+    - methods: POST
     
   User:
-    path: /users
-    methods: GET
+    - path: /users
+    - methods: GET
 
   Post:
-    path: /posts 
-    methods: GET, POST, DELETE
+    - path: /posts 
+    - methods: GET, POST, DELETE
   
 Backend:
-   Login:
-    path: /login
-    methods: POST
+  - Login:
+      - path: /login
+      - methods: POST
 
   User:
-    path: /users
-    methods: GET, POST, PUT, DELETE
+    - path: /users
+    - methods: GET, POST, PUT, DELETE
 
   Post:
-    path: /posts 
-    methods: GET, POST, PUT, DELETE
+    - path: /posts 
+    - methods: GET, POST, PUT, DELETE
 
 
   ## Features
