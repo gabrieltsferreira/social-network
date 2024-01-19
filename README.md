@@ -6,12 +6,6 @@ The aim of this project is to develop a social network.
 
 You will need to install docker v.3.9 to easily test the application
 
-### Prerequisites
-
-* You need this
-* And you need this
-* Oh, and don't forget this
-
 ### Installation
 
 ```
