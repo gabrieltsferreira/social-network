@@ -17,14 +17,19 @@ app.use((req, res, next) => {
 //Routing
 const testRoute = require('./routes/Test');
 const userRoute = require('./routes/User');
-const loginRoute = require('./routes/Login')
+const loginRoute = require('./routes/Login');
+const postRoute = require('./routes/Post');
 
 const authRoute = require('./routes/OAuth')
 const authRequestRoute = require('./routes/OAuthRequest')
 
+
+app.use('/', loginRoute);
 app.use('/test', testRoute);
 app.use('/users', userRoute);
-app.use('/login', loginRoute)
+app.use('/login', loginRoute);
+app.use('/posts', postRoute);
+
 
 app.use('/oauth', authRoute);
 app.use('/oauthrequest', authRequestRoute);

@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import CardComponent from "@/components/CardComponent";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
 
 export default function Home() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
@@ -45,15 +38,17 @@ export default function Home() {
     <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
       <div className="space-y-4 w-full max-w-2xl">
         <h1 className="text-2xl font-bold text-gray-800 text-center">
-          Login
+          Social Network
         </h1>
 
         {/* Google Auth */}
-        <button type="button" onClick={() => auth()}>
-          Login With Google
-        </button>
+        <div className="p-4 bg-blue-100 rounded shadow">
+          <button type="button" onClick={() => auth()} className="h-10 w-full p2 text-white bg-red-500 rounded">
+            Login With Google
+          </button>
+        </div>
 
-        {/* Login Form */}
+        {/* Login Form
         <div>
           <form onSubmit={loginUser} className="p-4 bg-blue-100 rounded shadow">
             <input
@@ -72,7 +67,7 @@ export default function Home() {
               Login
             </button>
           </form>
-        </div>
+        </div> */}
 
       </div>     
     </main>

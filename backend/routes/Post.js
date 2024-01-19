@@ -4,77 +4,84 @@ const router = express.Router();
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
-//Get Users Endpoint
+//Get Posts Endpoint
 router.get('/', async (req, res) => {
     try {
-        const users = await prisma.user.findMany();
-        res.status(200).json(users);
+        const posts = await prisma.post.findMany({
+            include: {
+                user: true
+            }
+        });
+        res.status(200).json(posts);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
 
-//Get Users By ID
+//Get Post By ID
 router.get('/:id', async (req, res) => {
     try {
-        const user = await prisma.user.findUnique({
+        const post = await prisma.post.findUnique({
             where: {
                 id: String(req.params.id),
             }
         });
-        res.status(200).json(user);
+        res.status(200).json(post);
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
 });
 
 
-//Create User Enpoint
+//Create Posts Enpoint
 router.post('/', async (req, res) => {
     try {
-        const user = await prisma.user.create({
+        const post = await prisma.post.create({
             data: {
-                name: req.body.name,
-                email: req.body.email,
-                posts: [],
-                comments: []
+                title: req.body.params.newPost.title,
+                description: req.body.params.newPost.description,
+                user: {
+                    connect: { id: req.body.params.sessionID }
+                }
             }
         });
-        res.status(201).json(user);
+        res.status(201).json(post);
     } catch (error) {
+        console.log(error.message)
         res.status(500).json({ message: error.message });
     }
 });
 
-//Update User Endpoint
+//Update Posts Endpoint
 router.put('/:id', async (req, res) => {
     try {
-        const user = await prisma.user.update({
+        const post = await prisma.post.update({
             where: {
                 id: String(req.params.id),
             },
             data: {
-                name: req.body.name,
-                email: req.body.email
+                title: req.body.title,
+                description: req.body.description
             }
         });
-        res.status(200).json(user);
+        res.status(200).json(post);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 });
 
-// Delete User Endpoint
+// Delete Posts Endpoint
 router.delete('/:id', async (req, res) => {
     try {
-        const user = await prisma.user.delete({
+        const post = await prisma.post.delete({
             where: {
                 id: String(req.params.id),
             }
         });
-        res.status(200).json(user);
+        res.status(200).json(post);
     } catch (error) {
-        res.status(500).json({ mssage: error.message });
+        console.log(error)
+        res.status(500).json({ message: error.message });
     }
     
 });
