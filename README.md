@@ -10,6 +10,7 @@ You will need to install docker v.3.9 to easily test the application
 
 ```
 $ git clone https://github.com/gabrieltsferreira/social-network.git
+$ cd social-network
 $ npm install
 $ docker-compose build
 $ docker-compose up -d db backend frontend
