@@ -18,7 +18,7 @@ You will need to install docker v.3.9 to easily test the application
 
 
 ### Installation
-Terminal Commands
+To test, run each command bellow on a terminal
 ```
 git clone https://github.com/gabrieltsferreira/social-network.git
 ```
@@ -26,7 +26,22 @@ git clone https://github.com/gabrieltsferreira/social-network.git
 cd social-network
 ```
 ```
+cd frontend
+```
+```
 npm install
+```
+```
+..
+```
+```
+cd backend
+```
+```
+npm install
+```
+```
+..
 ```
 ```
 docker-compose build
@@ -41,6 +56,12 @@ docker-compose up -d db backend frontend
 - Frontend will run at http://localhost:3000
 - Backend will run at http://localhost:4000
 - Database will run at http://localhost:5432
+
+To test Google Authentication:
+  - Require CLIENT_ID, SECRET_KEY, REDIRECT_URL to be created and stored in a .env file inside backend folder(root)
+  - To test it with docker: Add ` - env_file: ./backend/.env ` to backend service in docker compose file
+
+More information at https://cloud.google.com/)
 ```
 
 ## API
