@@ -29,8 +29,6 @@ $ docker-compose up -d db backend frontend
 
 ## Usage
 
-A few examples of useful commands and/or tasks.
-
 ```
 $ Frontend will run at http://localhost:3000
 $ Backend will run at http://localhost:4000
