@@ -8,13 +8,13 @@ You will need to install docker v.3.9 to easily test the application
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Node][Node.js]][Node-url]
-* [![Express][Express]][Express-url]
-* [![Prisma][Prisma]][Prisma-url]
-* [![Axios][Axios]][Axios-url]
-* [![Docker][Docker]][Docker-url]
+* Next.js
+* React.js
+* Node.js
+* Express
+* Prisma
+* Axios
+* Docker
 
 
 ### Installation
