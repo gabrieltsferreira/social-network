@@ -20,27 +20,27 @@ You will need to install docker v.3.9 to easily test the application
 ### Installation
 Terminal Commands
 ```
-$ git clone https://github.com/gabrieltsferreira/social-network.git
+git clone https://github.com/gabrieltsferreira/social-network.git
 ```
 ```
-$ cd social-network
+cd social-network
 ```
 ```
-$ npm install
+npm install
 ```
 ```
-$ docker-compose build
+docker-compose build
 ```
 ```
-$ docker-compose up -d db backend frontend
+docker-compose up -d db backend frontend
 ```
 
 ## Usage
 
 ```
-$ Frontend will run at http://localhost:3000
-$ Backend will run at http://localhost:4000
-$ Database will run at http://localhost:5432
+- Frontend will run at http://localhost:3000
+- Backend will run at http://localhost:4000
+- Database will run at http://localhost:5432
 ```
 
 ## API
